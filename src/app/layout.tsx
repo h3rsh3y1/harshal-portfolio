@@ -24,10 +24,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <header className="p-6 border-b shadow-sm flex justify-center gap-8 text-sm font-medium">
+          <a href="/" className="hover:underline">Home</a>
+          <a href="/about" className="hover:underline">About</a>
+          <a href="/projects" className="hover:underline">Projects</a>
+          <a href="/skills" className="hover:underline">Skills</a>
+          <a href="/contact" className="hover:underline">Contact</a>
+          <a href="/resume" className="hover:underline">Resume</a>
+        </header>
+        
+        {/* ✅ wrap children in a container */}
+        <main className="min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );
