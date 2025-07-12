@@ -1,45 +1,32 @@
 'use client';
-import { motion } from "framer-motion";
 
-export default function Skills() {
+export default function SkillsPage() {
   return (
-       <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="p-10 max-w-3xl mx-auto space-y-6"
-    >
-    <section className="p-10 max-w-4xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-center">Skills</h1>
-
-      <div>
-        <h2 className="text-xl font-semibold">Programming Languages</h2>
-        <p className="text-gray-700">C/C++, Python, Java, SQL, JavaScript, Verilog</p>
+    <section className="max-w-6xl mx-auto px-6 py-20 text-white">
+      {/* Title */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold tracking-tight">Skills</h1>
+        <p className="text-gray-300 mt-2">A snapshot of my technical arsenal</p>
       </div>
 
-      <div>
-        <h2 className="text-xl font-semibold">Frameworks & Tools</h2>
-        <p className="text-gray-700">
-          React, Firebase, Supabase, Node.js, FastAPI, Azure, Flutter, Provider
-        </p>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Left Section with Tabs */}
+        <div className="space-y-4">
+          {['Certifications', 'Programming Languages', 'Framework & Tools', 'Software Engineering Topics'].map((label, i) => (
+            <button
+              key={i}
+              className={`w-full py-3 px-5 text-left rounded-lg font-medium border border-white/10 bg-white/5 hover:bg-white/10 transition`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
 
-      <div>
-        <h2 className="text-xl font-semibold">Software Engineering Topics</h2>
-        <p className="text-gray-700">
-          Object-Oriented Design, Software Architecture, Microprocessor Systems
-        </p>
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold">Certifications</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>PCEP – Certified Entry-Level Python Programmer (2022)</li>
-          <li>PCAP – Certified Associate in Python Programming (2022)</li>
-          <li>JSE – Certified Entry-Level in JavaScript (2025)</li>
-        </ul>
+        {/* Right Section: Empty for now */}
+        <div className="text-gray-400 italic text-sm">
+          Select a tab to view details (functionality to be added next).
+        </div>
       </div>
     </section>
-    </motion.section>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavLink } from "./components/NavLinks";
-import { Home, User, Folder, Settings, Mail, FileText } from "lucide-react";
+import { Home, User, Folder, Settings, Mail, FileText, Link } from "lucide-react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,18 +25,38 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b shadow-sm">
-          <nav className="flex justify-center gap-6 px-4 py-4 text-sm font-medium text-gray-700">
-            <NavLink href="/"><Home size={16} className="inline-block mr-1" />Home</NavLink>
-            <NavLink href="/about"><User size={16} className="inline-block mr-1" />About</NavLink>
-            <NavLink href="/projects"><Folder size={16} className="inline-block mr-1" />Projects</NavLink>
-            <NavLink href="/skills"><Settings size={16} className="inline-block mr-1" />Skills</NavLink>
-            <NavLink href="/contact"><Mail size={16} className="inline-block mr-1" />Contact</NavLink>
-            <NavLink href="/resume"><FileText size={16} className="inline-block mr-1" />Resume</NavLink>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-[#43018f] via-[#2e026d]  to-black min-h-screen text-white`}>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <svg width="100%" height="100%">
+            <filter id="noise">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.8"
+                numOctaves="3"
+                stitchTiles="stitch"
+              />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect
+              width="100%"
+              height="100%"
+              filter="url(#noise)"
+              opacity="0.18"
+            />
+          </svg>
+        </div>
 
+        <header className="sticky top-4 z-50 flex justify-center">
+          <nav className="flex gap-6 px-6 py-2 text-sm font-medium text-white backdrop-blur-md bg-white/10 border border-white/20 shadow-md rounded-full">
+            <NavLink href="/"><Home size={16} />Home</NavLink>
+            <NavLink href="/projects"><Folder size={16} />Projects</NavLink>
+            <NavLink href="/skills"><Settings size={16} />Skills</NavLink>
+            <NavLink href="/contact"><Mail size={16} />Contact</NavLink>
+            <NavLink href="/resume"><FileText size={16} />Resume</NavLink>
           </nav>
         </header>
+
+
 
         {/* ✅ wrap children in a container */}
         <main className="min-h-screen">
