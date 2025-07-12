@@ -1,9 +1,18 @@
+'use client';
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+
 const projects = [
   {
     title: "Fitness Tracking App",
     tech: ["Flutter", "Firebase", "Provider"],
     description:
       "Cross-platform app with real-time goal tracking and modular architecture.",
+  },
+  {
+    title: "Hospital Management System",
+    tech: ["Java", "OOP", "CSV"],
+    description:
+      "Developed a Java HMS with modular design, interfaces, CSV handling, and JavaDoc documentation.",
   },
   {
     title: "Heart-Attack Prediction Model",
@@ -17,34 +26,56 @@ const projects = [
     description:
       "Implemented and compared classical search algorithms to solve Sudoku puzzles as graph problems.",
   },
-  {
-    title: "Hospital Management System",
-    tech: ["Java", "OOP", "CSV"],
-    description:
-      "Developed a Java HMS with modular design, interfaces, CSV handling, and JavaDoc documentation.",
-  },
+
 ];
 
 export default function Projects() {
   return (
-    <section className="p-10 max-w-4xl mx-auto space-y-8">
-      <h1 className="text-3xl font-bold text-center">Projects</h1>
-      {projects.map((project, idx) => (
-        <div key={idx} className="border rounded-lg p-6 shadow-sm space-y-2">
-          <h2 className="text-xl font-semibold">{project.title}</h2>
-          <p className="text-gray-600">{project.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((t, i) => (
-              <span
-                key={i}
-                className="bg-gray-200 px-2 py-1 text-xs rounded-full"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
+    <LayoutGroup>
+      <motion.section
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.15 } },
+        }}
+        className="p-10 max-w-4xl mx-auto space-y-8"
+      >
+        <h1 className="text-3xl font-bold text-center">Projects</h1>
+
+        <AnimatePresence>
+          {projects.map((project, idx) => (
+            <motion.div
+              key={idx}
+              layout
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.001,
+                ease: [0.25, 0.8, 0.25, 1],
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="border rounded-lg p-6 shadow-md hover:shadow-xl transition-all space-y-2 bg-white/80 backdrop-blur transform-gpu"
+            >
+              <h2 className="text-xl font-semibold">{project.title}</h2>
+              <p className="text-gray-600">{project.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((t, i) => (
+                  <span
+                    key={i}
+                    className="bg-gray-200 px-2 py-1 text-xs rounded-full"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.section>
+    </LayoutGroup>
+
   );
 }

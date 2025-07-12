@@ -1,5 +1,14 @@
+'use client';
+import { motion } from "framer-motion";
+
 export default function Skills() {
   return (
+       <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="p-10 max-w-3xl mx-auto space-y-6"
+    >
     <section className="p-10 max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold text-center">Skills</h1>
 
@@ -31,5 +40,6 @@ export default function Skills() {
         </ul>
       </div>
     </section>
+    </motion.section>
   );
 }

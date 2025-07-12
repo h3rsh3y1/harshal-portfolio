@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { NavLink } from "./components/NavLinks";
+import { Home, User, Folder, Settings, Mail, FileText } from "lucide-react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,15 +26,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="p-6 border-b shadow-sm flex justify-center gap-8 text-sm font-medium">
-          <a href="/" className="hover:underline">Home</a>
-          <a href="/about" className="hover:underline">About</a>
-          <a href="/projects" className="hover:underline">Projects</a>
-          <a href="/skills" className="hover:underline">Skills</a>
-          <a href="/contact" className="hover:underline">Contact</a>
-          <a href="/resume" className="hover:underline">Resume</a>
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b shadow-sm">
+          <nav className="flex justify-center gap-6 px-4 py-4 text-sm font-medium text-gray-700">
+            <NavLink href="/"><Home size={16} className="inline-block mr-1" />Home</NavLink>
+            <NavLink href="/about"><User size={16} className="inline-block mr-1" />About</NavLink>
+            <NavLink href="/projects"><Folder size={16} className="inline-block mr-1" />Projects</NavLink>
+            <NavLink href="/skills"><Settings size={16} className="inline-block mr-1" />Skills</NavLink>
+            <NavLink href="/contact"><Mail size={16} className="inline-block mr-1" />Contact</NavLink>
+            <NavLink href="/resume"><FileText size={16} className="inline-block mr-1" />Resume</NavLink>
+
+          </nav>
         </header>
-        
+
         {/* ✅ wrap children in a container */}
         <main className="min-h-screen">
           {children}

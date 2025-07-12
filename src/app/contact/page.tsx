@@ -1,5 +1,14 @@
+'use client';
+import { motion } from "framer-motion";
+
 export default function Contact() {
   return (
+        <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="p-10 max-w-3xl mx-auto space-y-6"
+    >
     <section className="p-10 max-w-xl mx-auto text-center space-y-6">
       <h1 className="text-3xl font-bold">Contact Me</h1>
       <p className="text-gray-700">Feel free to reach out through any of the platforms below.</p>
@@ -16,5 +25,6 @@ export default function Contact() {
         </li>
       </ul>
     </section>
+    </motion.section>
   );
 }
