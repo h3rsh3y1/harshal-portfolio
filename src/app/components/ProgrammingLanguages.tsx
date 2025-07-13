@@ -18,12 +18,12 @@ const languages = [
 
 export default function ProgrammingLanguages() {
   return (
-    <div className="relative w-full sm:w-3/4 mx-auto mt-16 flex flex-col items-center gap-16">
+    <div className="relative w-full sm:w-3/4 mx-8 mt-14 flex flex-col items-center gap-16">
       {/* Glowing Background Blob */}
       <div className="absolute -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-blue-500 blur-[120px] opacity-20 animate-pulse rounded-full" />
 
       {/* Grid container */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-14 gap-y-10 place-items-center w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6 place-items-center w-full">
         {languages.map((lang, index) => {
           const isLastRow = index >= 8;
 
