@@ -85,6 +85,7 @@ export default function EducationTimeline() {
                                 <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-[rgba(255,255,255,0.05)] border border-white/20 flex items-center justify-center text-white text-xl font-bold shadow-md backdrop-blur-sm group-hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300">
 
                                     {entry.score}
+                                    <p>meowmemwome</p>
                                 </div>
                             </motion.div>
                         </div>
