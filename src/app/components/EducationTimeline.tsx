@@ -29,13 +29,13 @@ export default function EducationTimeline() {
     return (
         <div className="flex flex-col items-center space-y-10 mt-10">
             <motion.h2
-  initial={{ opacity: 0, y: -10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, ease: 'easeOut' }}
-  className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-300 drop-shadow-md tracking-wide"
->
-  Education 🎓
-</motion.h2>
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-300 drop-shadow-md tracking-wide"
+            >
+                Education 🎓
+            </motion.h2>
 
 
             <div className="relative w-full max-w-4xl px-4">
@@ -82,11 +82,11 @@ export default function EducationTimeline() {
                                 </div>
 
                                 {/* Score Badge */}
-                                <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-[rgba(255,255,255,0.05)] border border-white/20 flex items-center justify-center text-white text-xl font-bold shadow-md backdrop-blur-sm group-hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300">
-
-                                    {entry.score}
+                                <div className="absolute top-4 right-4 w-[68px] h-[68px] rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white text-xl font-bold shadow-md backdrop-blur-none group-hover:bg-white/20 transition-all duration-300">
+                                    {entry.score ?? ""}
                                     
                                 </div>
+
                             </motion.div>
                         </div>
                     ))}
