@@ -113,24 +113,23 @@ export default function Certifications() {
       {/* Dot Indicator */}
       <div className="flex justify-center mt-4 mb-4 gap-3">
         {certifications.map((_, index) => (
-  <button
-    key={index}
-    onClick={() => setCurrentIndex(index)}
-    className="focus:outline-none"
-  >
-    <motion.div
-      className={`h-3 rounded-full transition-all duration-300 ${
-        currentIndex === index ? 'w-8 bg-white' : 'w-3 bg-white/30'
-      }`}
-      animate={{
-        scale: currentIndex === index ? 1.25 : 1,
-        opacity: currentIndex === index ? 1 : 0.6,
-      }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    />
-  </button>
-))}
-
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className="focus:outline-none"
+          >
+            <motion.div
+              className={`h-3 rounded-full transition-all duration-300 ${
+                currentIndex === index ? 'w-8 bg-white' : 'w-3 bg-white/30'
+              }`}
+              animate={{
+                scale: currentIndex === index ? 1.25 : 1,
+                opacity: currentIndex === index ? 1 : 0.6,
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            />
+          </button>
+        ))}
       </div>
 
       {/* Navigation */}

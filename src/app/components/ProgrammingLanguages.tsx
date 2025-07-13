@@ -18,9 +18,12 @@ const languages = [
 
 export default function ProgrammingLanguages() {
   return (
-    <div className="w-full sm:w-3/4 mx-auto mt-12 flex flex-col items-center gap-10">
+    <div className="relative w-full sm:w-3/4 mx-auto mt-16 flex flex-col items-center gap-16">
+      {/* Glowing Background Blob */}
+      <div className="absolute -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-blue-500 blur-[120px] opacity-20 animate-pulse rounded-full" />
+
       {/* Grid container */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-4 place-items-center w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-14 gap-y-10 place-items-center w-full">
         {languages.map((lang, index) => {
           const isLastRow = index >= 8;
 
@@ -28,17 +31,28 @@ export default function ProgrammingLanguages() {
             <motion.div
               key={lang.name}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-                ease: 'easeOut',
+                duration: 0.6,
+                delay: index * 0.07,
+                scale: { duration: 0.1, ease: 'easeOut' }, // ← handles exit scale
               }}
-              className={`flex flex-col items-center group transition-all ${
-                isLastRow && index === 8 ? 'col-span-2 sm:col-span-1 sm:col-start-2' : ''
-              } ${isLastRow && index === 9 ? 'col-span-2 sm:col-span-1 sm:col-start-3' : ''}`}
+              whileHover={{
+                scale: 1.2,
+                transition: {
+                  duration: 0.11,
+                  ease: 'easeOut',
+                },
+              }}
+
+              className={`relative flex flex-col items-center group transition-all duration-30 ${isLastRow && index === 8 ? 'col-span-2 sm:col-span-1 sm:col-start-2' : ''
+                } ${isLastRow && index === 9 ? 'col-span-2 sm:col-span-1 sm:col-start-3' : ''}`}
             >
-              <div className="w-24 h-24 bg-white/80 rounded-xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center">
+              {/* Glow ring on hover */}
+              <div className="absolute w-28 h-28 rounded-xl bg-gradient-to-tr from-purple-500 to-cyan-500 blur-xl opacity-0 group-hover:opacity-30 transition duration-200"></div>
+
+              {/* Image container */}
+              <div className="relative z-10 w-24 h-24 bg-white/80 rounded-xl shadow-xl hover:shadow-2xl transform flex items-center justify-center backdrop-blur-md">
                 <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                   <Image
                     src={lang.image}
@@ -48,8 +62,9 @@ export default function ProgrammingLanguages() {
                   />
                 </div>
               </div>
-              {/* Hovered name below */}
-              <p className="text-sm font-semibold text-white mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+              {/* Language name - only appears on hover */}
+              <p className="text-sm font-semibold text-white mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 {lang.name}
               </p>
             </motion.div>
