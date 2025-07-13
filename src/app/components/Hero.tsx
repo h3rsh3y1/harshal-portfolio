@@ -23,7 +23,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
                     <h1 className="text-4xl font-bold">
-                        Hi, I’m Harshal Meow <span className="inline-block animate-wave">👋</span>
+                        Hi, I’m Harshal<span className="inline-block animate-wave">👋</span>
                     </h1>
                     <p className="mt-2 text-gray-300 max-w-xl">
                         Computer Engineering student @ NTU Singapore · Passionate about merging software and hardware to create impactful systems. Special interest in backend development, AI/ML, and embedded systems — where data meets design. <br />
