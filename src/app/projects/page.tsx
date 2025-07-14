@@ -41,7 +41,7 @@ export default function Projects() {
         }}
         className="p-10 max-w-4xl mx-auto space-y-8"
       >
-        <h1 className="text-3xl font-bold text-center">Projects</h1>
+       <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Projects</h1>
 
         <AnimatePresence>
           {projects.map((project, idx) => (

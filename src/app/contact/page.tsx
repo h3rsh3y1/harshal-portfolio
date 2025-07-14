@@ -8,31 +8,32 @@ export default function ContactResume() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setSubmitted(true);
+    e.preventDefault();
 
-  const form = e.target as HTMLFormElement;
-  const formData = new FormData(form);
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-  const body = {
-    firstName: formData.get('firstName'),
-    lastName: formData.get('lastName'),
-    email: formData.get('email'),
-    phone: formData.get('phone'),
-    service: formData.get('service'),
-    message: formData.get('message'),
+    const body = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+    };
+
+    await fetch('https://formspree.io/f/xldlrvyj', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    form.reset(); // ✅ Clear form
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
   };
-
-  await fetch('/api/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-
-  form.reset();
-  setTimeout(() => setSubmitted(false), 3000);
-};
-
 
   return (
     <motion.section
@@ -62,20 +63,20 @@ export default function ContactResume() {
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="First name" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
-              <input type="text" placeholder="Last name" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
+              <input name="firstName" type="text" placeholder="First name" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
+              <input name="lastName" type="text" placeholder="Last name" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input type="email" placeholder="Email address" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
-              <input type="tel" placeholder="Phone number" className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
+              <input name="email" type="email" placeholder="Email address" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
+              <input name="phone" type="tel" placeholder="Phone number" className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
             </div>
-            <select required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
-              <option>Select a service</option>
+            <select name="service" required className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+              <option value="">Select a service</option>
               <option>Web Development</option>
               <option>UI/UX Design</option>
               <option>Consultation</option>
             </select>
-            <textarea required placeholder="Type your message here." rows={4} className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
+            <textarea name="message" required placeholder="Type your message here." rows={4} className="bg-black/30 text-sm text-white px-4 py-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-500" />
             <button
               type="submit"
               className="bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 hover:from-fuchsia-400 hover:to-purple-500 transition-transform duration-200"
@@ -119,7 +120,7 @@ export default function ContactResume() {
           <div className="flex items-center gap-4">
             <Github className="text-fuchsia-400" />
             <a href="https://github.com/h3rsh3y1" className="text-gray-300 hover:underline" target="_blank">
-              https://github.com/h3rsh3y1
+              github.com/h3rsh3y1
             </a>
           </div>
           <div className="flex items-center gap-4">
