@@ -32,7 +32,7 @@ export default function EducationTimeline() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-300 drop-shadow-md tracking-wide"
+                className="text-3xl font-bold text-transparent bg-clip-text  bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-md tracking-wide"
             >
                 Education 🎓
             </motion.h2>

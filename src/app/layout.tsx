@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-[#43018f] via-[#2e026d]  to-black min-h-screen text-white`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-[#1f005c] via-[#5b0060] to-[#000000] min-h-screen text-white`}>
         <div className="absolute inset-0 z-0 pointer-events-none">
           <svg width="100%" height="100%">
             <filter id="noise">
@@ -52,7 +52,6 @@ export default function RootLayout({
             <NavLink href="/projects"><Folder size={16} />Projects</NavLink>
             <NavLink href="/skills"><Settings size={16} />Skills</NavLink>
             <NavLink href="/contact"><Mail size={16} />Contact</NavLink>
-            <NavLink href="/resume"><FileText size={16} />Resume</NavLink>
           </nav>
         </header>
 

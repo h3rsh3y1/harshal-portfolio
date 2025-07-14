@@ -4,21 +4,21 @@ import { BadgeCheck, Code2, Wrench, Brain } from 'lucide-react';
 import Certifications from '../components/Certifications';
 import { motion } from 'framer-motion';
 import ProgrammingLanguages from '../components/ProgrammingLanguages';
+import Framework from '../components/framework';
 
 
 const tabs = [
   { label: "Certifications", icon: BadgeCheck },
   { label: "Programming Languages", icon: Code2 },
   { label: "Framework & Tools", icon: Wrench },
-  { label: "Software Engineering Topics", icon: Brain },
 ];
 
 export default function Skills() {
   const [selectedTab, setSelectedTab] = useState("Certifications");
 
   return (
-    <section className="mt-10 px-6 flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-2">Skills</h2>
+    <section className="mt-10 px-6 flex flex-col items-center ">
+      <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Skills</h2>
       <p className="text-sm text-gray-300 italic mb-8">A snapshot of my technical arsenal</p>
 
       <div className="flex flex-col sm:flex-row gap-6 w-full max-w-5xl -mt-10">
@@ -53,6 +53,7 @@ export default function Skills() {
 <div className="w-full sm:w-4/5 ">
   {selectedTab === "Certifications" && <Certifications />}
   {selectedTab === "Programming Languages" && <ProgrammingLanguages />}
+  {selectedTab === "Framework & Tools" && <Framework/>}
 
 </div>
       </div>
