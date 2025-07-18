@@ -44,7 +44,7 @@ export default function Certifications() {
     setCurrentIndex((i) => (i === certifications.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-4 py-10">
+    <div className="relative w-full max-w-6xl mx-auto px-4 py-10 -mt-6">
       {/* Glowing Background */}
       <div className="absolute -z-10 left-1/2 top-[45%] transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-purple-500 via-pink-500 to-blue-500 blur-3xl opacity-20 rounded-full animate-pulse" />
 
